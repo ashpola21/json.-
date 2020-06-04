@@ -1,0 +1,12 @@
+import json   
+import urllib.request  
+url= input('Enter site: ')  
+print ('Retrieving ', url) 
+data = urllib.request.urlopen(url).read()  
+info = json.loads(data)  
+tot = 0  
+print ('Retrieved ', len(data), 'characters')  
+print ('Count: ', len(info['comments'])) 
+for i in range(0, len(info['comments'])):  
+  tot += int(info['comments'][i]['count'])  
+print ('Sum ', tot)
